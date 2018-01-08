@@ -1,0 +1,227 @@
+.xtx-btn {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+ background-color: #5BB75B;
+     background-color: #5BB75B;
+    background-image: linear-gradient(to bottom, #62C462, #51A351);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 20px;
+    margin: 30px auto;
+    padding: 3px 12px;
+    text-align: center;
+    vertical-align: middle;
+	}
+
+.arrow_togglewidth{
+	background:url(../images/arrow_togglewidth.png);
+	width:16px;
+	height:16px;
+	display:block;
+	float:left;
+	margin:5px
+
+
+	}
+
+#xtx-uploadArea {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: -3px 0 15px #CCCCCC;
+    float: right;
+    position: fixed;
+    right: 0;
+    text-align: left;
+    top: 0;
+    width: 308px;
+	height:100%;
+	overflow-y:scroll;
+}
+#xtx-uploadArea  .xtx-group h3{
+	text-align:center;
+	border-bottom:1px solid #ddd;
+	border-top:1px solid #f8f8f8;
+
+	background:#eee;
+	font-size:16px;
+	height:35px;
+	line-height:35px;
+	position:relative;
+	}
+#xtx-uploadArea  .xtx-group h3 strong {
+
+	display:inline-block;
+	padding:0 10px;
+	height:35px;
+	line-height:35px;
+	min-width:50px;
+	float:left;
+	font-size:14px
+
+
+	}
+#xtx-uploadArea  .xtx-group h3 strong:hover{
+	background:#ddd;
+
+
+	}
+#xtx-uploadArea  	.close{
+	float:right;
+		color:#ccc;
+		cursor:pointer;
+		width:16px;
+	height:16px;
+	display:block;
+		margin:11px 10px 0 12px;
+
+	background:url(../images/del.png);
+	text-indent:100%;
+	white-space:nowrap;
+	overflow:hidden
+
+		}
+
+
+
+#xtx-uploadArea	.saveOrder{
+		 width:16px;
+	height:16px;
+	display:block;
+	cursor:pointer;
+	float:right;
+	margin:11px 0 0 12px;
+	background:url(../images/save.png)
+
+
+			}
+
+
+
+
+#xtx-uploadArea  	.close:hover{
+		color:#c00
+
+		}
+#xtx-uploadArea  .xtx-group .xtx-groupContent{
+
+
+	overflow:hidden;
+	}
+
+#xtx-uploadArea  .xtx-group .xtx-groupImg{
+
+	padding:15px 10px;
+	text-align:center;
+	font-size:12px;
+	color:#666;
+	border:2px dashed #ddd;
+	margin:10px;
+	min-height:100px;
+	overflow:hidden;
+
+
+		}
+
+#xtx-uploadArea  .xtx-group .xtx-groupImg li{
+
+	padding:15px 0;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #ddd;
+		}
+#xtx-uploadArea  .xtx-group .xtx-groupImg li:hover{
+	background:#FFF
+
+	}
+#xtx-uploadArea  .xtx-group .xtx-groupImg li:first-child{
+	border-top:0
+
+	}
+#xtx-uploadArea  .xtx-group .xtx-groupImg li:last-child{
+	border-bottom:0
+
+	}
+
+#xtx-uploadArea  	.del{
+		float:right;
+		text-decoration:none;
+		color:#666
+
+		}
+#xtx-uploadArea  .xtx-group .xtx-groupText{
+		margin:10px;
+		}
+#xtx-uploadArea  .xtx-group .xtx-groupText textarea{
+	border:1px solid #ccc;
+	border-radius:2px;
+	min-height:12px;
+	padding:5px;
+	line-height:1.6;
+	font-size:12px;
+	overflow:auto;
+	color:#666;
+	width:90%;
+	height:20px
+
+
+	}
+#xtx-uploadArea  .xtx-groupContent-enter{
+	background:#FC3
+	}
+
+#xtx-uploadArea  .xtx-group progress{
+	display:block;
+
+		height:3px;
+		margin:0 auto;
+		padding:0;
+		width:100px;
+
+		}
+
+#xtx-uploadArea  .view-item{
+	  width:90%;
+	  position:relative;
+	  margin-bottom:20px
+
+
+		}
+#xtx-uploadArea  .k{ width:16px;
+	height:16px;
+	display:block;
+	cursor:pointer;
+	float:left;
+	margin:11px 0 0 12px;
+	background:url(../images/jian.png)
+
+	 }
+#xtx-uploadArea   .k_jia{
+		 background:url(../images/jia.png)
+
+		 }
+#xtx-uploadArea  .xtx-insert{
+		 width:16px;
+	height:16px;
+	display:block;
+	cursor:pointer;
+	float:right;
+	margin:11px 0 0 12px;
+	background:url(../images/insert.png)
+		}
+
+#xtx-uploadArea  li.highlight {
+    background: none repeat scroll 0 0 #FEE25F;
+}
+#xtx-uploadArea  li.sortable-placeholder {
+	background:#FFDAB5;
+	border: 1px dashed #FFDAB5;
+
+}

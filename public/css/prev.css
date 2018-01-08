@@ -1,0 +1,148 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0;}
+body{background:url(../images/editor/images/iphonebg.jpg) center top no-repeat ; background-attachment:fixed; }
+#container{height: 473px;margin:164px auto 0; width: 322px; line-height:1.6; font-size:12px; padding-left:1px;word-wrap: break-word; }
+p{ margin:0.5em 0}
+img{ max-width:100%}
+h1{ text-align:left; font-size:22px; font-family:"微软雅黑"; margin:0; padding:3px 0 0 0}
+#top{ background:url(../images/editor/images/iphonebg_02.png); width:402px; height:163px; position:fixed; z-index:9999; top:0px; left:50%; margin-left:-201px}
+#bottom{ background:url(../images/editor/images/iphonebg_04.png); width:402px; height:163px; position:fixed; z-index:9998; bottom:-35px; left:50%; margin-left:-201px}
+#footer{ height:130px}
+h1,h2,h3,h4,p{
+	margin:0;
+	padding:0
+	}
+
+#atcileContaner{ 
+margin:155px auto 0;
+color:#333;
+word-wrap: break-word;
+width:320px;
+}
+/*以下同content.css*/
+#atcileContaner h1 { 
+color:#000;
+font-size:24px;
+line-height:1.5;
+padding:8px 5px 0;
+margin:0;
+font-weight:bold
+}
+#atcileContaner h2 { 
+color:#666;
+font-size:20px;
+line-height:1.5;
+padding:0 5px 5px;
+margin:0
+}
+#atcileContaner h3{
+font-weight:bold;
+font-size:16px;
+line-height:1.6;
+padding:0 5px;
+text-indent:2em;
+text-align:left
+}
+#atcileContaner p{
+	text-indent:2em;
+	line-height:1.6;
+	padding: 0 5px;
+	margin:1em 0
+}
+#atcileContaner  .img{
+	position:relative;
+	display:inline-block;
+	margin:0 auto;
+	width:100%;
+	-webkit-box-shadow:0px 3px 3px  #999;
+	box-shadow:0px 3px 3px  #999;
+	text-align:center
+}
+
+#atcileContaner .img:after{
+	content:url(http://image.dili360.com/beiyong/zoom.png);
+	position:absolute;
+	right:0;
+	bottom:0;
+	z-index:999
+}
+
+#atcileContaner  .aImg{
+	text-align:center;
+	position:relative;
+	display:inline-block;
+	margin:1em auto	;
+	width:100%;
+	-webkit-box-shadow:0px 3px 3px  #999;
+	box-shadow:0px 3px 3px  #999;
+
+}
+
+#atcileContaner .aImg:after{
+	content:url(http://image.dili360.com/beiyong/zoom.png);
+	position:absolute;
+	right:0;
+	bottom:0;
+	z-index:999
+}
+
+#atcileContaner p:nth-last-child(2):after{
+	content:url(http://image.dili360.com/beiyong/smalllogo.png);
+	padding-left:5px;
+}
+.yin{
+	color:#666;
+	line-height:24px;
+	padding:0 8px;
+	margin-bottom:1em
+}
+.yin:before{
+	content:url(http://image.dili360.com/beiyong/l.png);
+	padding-right:5px
+}
+.yin:after{
+	content:url(http://image.dili360.com/beiyong/r.png);
+	padding-left:5px;
+}
+.author{
+	border-top:1px solid #999;
+	padding:.5em 3px;
+	color:#666;
+	margin:0 3px
+}
+.imginfo{
+	color:#9e3500;
+	line-height:1.6;
+	padding:0 8px;
+	font-size:12px;
+	margin-bottom:1em;
+}
+.imginfo:before{
+	content:'◎';
+	color:#c00;
+	display:inline-block;
+		font-size:14px
+}
+.video{
+	padding:20px 0;
+	background:#333;
+	position:relative
+	   }
+.video img{
+	max-width:100%
+	
+	}
+.video button{
+	background:url(http://image.dili360.com/beiyong/videoplay.png);
+	width:73px;
+	height:73px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-36px 0 0 -36px;
+	z-index:99;
+	text-indent:-9999px;
+	overflow:hidden;
+	border:none
+	}

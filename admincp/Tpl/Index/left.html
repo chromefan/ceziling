@@ -1,0 +1,50 @@
+<script type="text/JavaScript">
+<!--
+var $$=function(id) {
+    return document.getElementById(id);
+}
+
+var temp=0;
+function show_menuC(){
+    if (temp==0){
+        document.getElementById('LeftBox').style.display='none';
+        document.getElementById('RightBox').style.marginLeft='0';
+        document.getElementById('Mobile').style.background='url(/public/images/center.gif)';
+        temp=1;
+    }
+    else
+    {
+        document.getElementById('RightBox').style.marginLeft='222px';
+        document.getElementById('LeftBox').style.display='block';
+        document.getElementById('Mobile').style.background='url(/public/images/center0.gif)';
+        temp=0;
+    }
+}
+//-->
+</script>
+<div class="left" id="LeftBox">
+	<div class="left01">
+		<div class="left01_right"></div>
+		<div class="left01_left"></div>
+		<div class="left01_c"><eq name="Think.cookie.cms_tested" value="test"><a href="__APP__/index/" style="color:red; font-weight:bold;">测试版</a></eq> {$user.rolename}：{$user.username}</div>
+	</div>
+	<volist name="menu" id="m">
+	<div class="left02">
+		<div class="left02top">
+			<div class="left02top_right"></div>
+			<div class="left02top_left"></div>
+			<div class="left02top_c">{$m.pid.name}</div>
+		</div>
+	    <div class="left02down">
+	    <volist name="m.sid" id="n">
+	  		<div class="left02down01"><a href="{$n.url}"><div id="{$n.id}" class="left02down01_img"></div>{$n.name}</a></div>
+	    </volist>
+		</div>
+	</div>
+	</volist>
+	<div class="left01">
+		<div class="left03_right"></div>
+		<div class="left01_left"></div>
+		<div class="left03_c"><a href="__APP__/public/logout">安全退出</a></div>
+	</div>
+</div>

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>{$page_title}</title>
+<link rel="stylesheet" type="text/css" media="screen" href="__CSS__/login.css">
+<script type="text/javascript" src="__JS__/jquery.js"></script>
+<script type="text/javascript">
+	function hiddenInputText(id) {
+		document.getElementById(id).style.display = "none";
+	}
+	//目的：检查对应地用户输入情况
+	function Check() {
+		if (thisForm.username.value == "") {
+			$('#ValrUserName').html('请输入您的用户名');			
+			thisForm.username.focus();
+			return false;
+		} else if (thisForm.password.value == "") {
+			$('#ValrUserName').html('请输入您的密码');			
+			thisForm.password.focus();
+			return false;
+		}
+		else if(thisForm.verify.value == "")
+	    {
+	    	$('#ValrUserName').html('请输入验证码');	    	
+	    	thisForm.verify.focus();
+	    	return false;
+	    }
+		return true;
+	}
+
+	function changeverify() {
+		var date = new Date();
+		var ttime = date.getTime();
+		var url = "__APP__/public/verify";
+		$('#verifyimg').attr("src", url + '/' + ttime);
+	}
+	
+</script>
+</head>
+<body id="login">
+	<div id="page">		
+		<h1></h1>
+		  <div id="login_form">
+		       <form name="thisForm" onsubmit="return Check();"	action="__APP__/public/dologin" method="post">
+		      <ul class="clearfix">
+		        <li>
+		          <lable id="usr" class="login_lable" for="login_username">用户名</lable><input type="input" id="username" class="text r5px" name="username" onfocus="hiddenInputText('usr')" />
+		        </li>
+		        <li>
+		          <lable id="pwd" class="login_lable" for="login_password">密码</lable><input type="password" id="password" class="text r5px" name="password" onfocus="hiddenInputText('pwd')">
+		        </li>
+		        <li style="width:180px;">
+		          <lable id="verify" class="login_lable" for="login_verify">验证码</lable><input type="text" id="veri" class="text r5px" name="verify" onfocus="hiddenInputText('verify')"> <span style="height:35px; line-height:35px;"><img onclick="changeverify();" style="cursor: pointer;" title="看不清? 换一张" alt="看不清? 换一张" id="verifyimg" src="__APP__/public/verify"></span>
+		        </li>
+		        <li class="last">
+		          <input type="submit" id="button_login" class="r5px button_blue" value="登 录">
+		        </li>
+		      </ul>
+		    </form>
+		    <div class="zu-index-link-apply-x2 r5px"> <span class="r5px zu-index-link-apply-x1"> <span id="ValrUserName" style="DISPLAY:block; COLOR: red"></span> </span> </div>
+		  </div>		
+		<div id="footer">
+			<p>	© 2012 版权所有 中国国家地理网</p>
+			<p style="display:none;">{__RUNTIME__}</p>
+		</div>
+	</div>
+</body>
+</html>

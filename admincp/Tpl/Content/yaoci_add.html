@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$page_title} - {$Think.config.SITE_NAME}</title>
+<load href="__CSS__/style.css" />
+</head>
+<load href="__JS__/jquery-min-1.9.js" />
+<load href="__JS__/layer/layer.min.js" />
+<load href="__JS__/va.js" />
+<script>
+	function Submit(formname) {
+
+		var formid = document.getElementById(formname);
+		var isform = Validator.Validate(formid, 3);
+
+		if (!isform) {
+			return false;
+		} else {
+			formid.submit();
+			return true;
+		}
+	}
+</script>
+<body>
+	<div class="list-div" id="listDiv">
+		<form id="form1" name="form1" method="post" action="__APP__/content/yaoci_add?add=1">
+			<p>&nbsp;</p>
+			<table width="100%" border="0" style="text-align:left;">
+				<tr>
+					<td width="15%">名称</td>
+					<td><label for="name"></label> <input type="text" name="name"
+						id="name"  datatype="Require"
+						msg="请输入名称" placeholder="名称"/><span id="nameTip" style="color: red"></span></td>
+				</tr>
+				<tr>
+					<td>位置</td>
+					<td><label for="position"></label> <input type="text" name="position"
+						id="position"  datatype="Number"
+						msg="请输入位置为数字" placeholder="位置"/><span id="positionTip" style="color: red"></span></td>
+				</tr>			
+				<tr>
+					<td>本卦</td>
+					<td><select name="s_gua_id" id="cate">
+						<volist name="data" id="c">
+							<option value="{$c.id}">{$c.fullname}</option>
+						</volist>
+					</select></td>
+				</tr>
+				<tr>
+					<td>变卦</td>
+					<td><select name="b_gua_id" id="cate">
+						<volist name="data" id="c">
+							<option value="{$c.id}">{$c.fullname}</option>
+						</volist>
+					</select></td>
+				</tr>
+				<tr>
+					<td>爻辞</td>
+					<td><label for="yaoci"></label><textarea
+						name="yaoci" id="yaoci" cols="30" rows="3"/></textarea></td>
+				</tr>
+				<tr>
+					<td>邵辞</td>
+					<td><label for="shaoci"></label> <textarea name="shaoci"
+							id="shaoci" cols="45" rows="4"></textarea></td>
+				</tr>
+				<tr>
+					<td>体用</td>
+					<td><label for="tiyong"></label> <textarea name="tiyong"
+							id="tiyong" cols="30" rows="3"></textarea></td>
+				</tr>
+				<tr>
+					<td>五行</td>
+					<td><label for="wuxing"></label> <textarea name="wuxing"
+							id="wuxing" cols="30" rows="3"></textarea></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="button" name="doSave" id="button" value="保存" onclick="Submit('form1');"/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

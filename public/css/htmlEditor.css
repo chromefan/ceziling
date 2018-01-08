@@ -1,0 +1,108 @@
+*{ margin:0; padding:0}
+#containner{ width:950px; margin:10px; padding:20px; background:#eee; overflow:hidden;position:relative }
+.ste { width:680px; height:300px; background:#eee; border:1px solid #eee; float:left}
+.ste .bar { background: #ECE9D8; padding: 3px; border: #ACA899 1px; border-style: solid solid none solid; }
+.ste .frame { border: 1px solid; border-color:#999; }
+.ste img { border: 0; }
+.ste .button { padding: 1px; border: #ECE9D8 1px solid; }
+.ste .button-hover { padding: 1px; border: 1px solid; border-color: #ffffff #ACA899 #ACA899 #ffffff; }
+.ste .button-click { padding: 1px; border: 1px solid; border-color: #ACA899 #ffffff #ffffff #ACA899; }
+.ste .separator { width: 0px; height: 18px; border-left: #aca899 1px solid; border-right: #ffffff 1px solid; margin: 0 5px; }
+.ste .source { padding-top: 5px; }
+#textarea-ste{ width:680px; float:left; position:relative}
+#textarea{ width: 620px; height:515px; overflow:auto; border:1px solid #ccc; background:#f8f8f8;  padding: 9px;resize:none; display:none }
+#uploadready{    background: none repeat scroll 0 0 #F8F8F8;
+    border-radius: 3px 3px 3px 3px;
+    float: right;
+    position: fixed;
+    right: 0;
+    text-align: left;
+    top: 0;
+    width:308px;
+	 box-shadow: -3px 0 15px #CCCCCC;}
+#uploadready h2{ text-align:center; background:#f8f8f8; border-bottom:1px solid #ddd; padding:10px 0; color:#555; font-size:16px}
+#uploadready #dropbox{ height:700px; overflow-y:auto;}
+#uploadready li{ list-style:none; position:relative; font-size:12px; padding:30px; line-height:1.6; border-bottom:1px solid #ddd; margin-bottom:20px; padding-bottom:20px }
+#uploadready li p{ background:#F9F4E6; padding:3px; word-break:break-all;overflow:hidden; text-overflow:ellipsis;   border-left:#ccc; border-top:#ccc; border-right:#ddd; border-bottom:#ddd; border-width:1px; border-style:solid}
+#uploadready li p:focus{ background:#FC9}
+.img_and_info img:hover{ cursor:pointer; opacity:.8}
+#uploadready li span{ display:none; position:absolute; left:50%; top:50%; text-indent:-9999px; background:url(../images/editor/images/delete_x.png); margin-left:-32px; margin-top:-32px; cursor:pointer;  width:64px; height:64px}
+#uploadready li:hover span{ display:block}
+.title{ width:628px; height:38px; font-family:'微软雅黑';  font-size:18px; margin-bottom:10px; padding-left:10px}
+.source{  border:1px solid #666; background:#FFC; cursor:pointer; padding:5px 12px; font-size:12px; float:left; margin-top:5px}
+#uploadView{ width:800px; height:300px; position:absolute; display:none;left:300px; top:100px; background:#fff; border:10px solid #ddd;}
+#dropbox img{ display:block; margin:20px auto 5px}
+#dropbox ul { padding:0; margin:0}
+progress {
+    border-radius: 2px;
+    border-left: 1px #ccc solid;
+    border-right: 1px #ccc solid;
+    border-top: 1px #aaa solid;
+    background-color: #eee;
+	width:100%;
+	height:3px;
+}
+progress::-webkit-progress-bar {
+    background-color: #d7d7d7;
+}
+progress::-webkit-progress-value {
+    background-color: #aadd6a;
+}
+.box-shadow{
+	box-shadow:0px 0px 8px #999 inset;               /* For Firefox3.6+ */
+	-webkit-box-shadow:5px 5px 5px #999 inset;            /* For Chrome5+, Safari5+ */
+}
+.openbox{ background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 5px 5px 5px #CCCCCC;
+    left: 293px;
+    overflow: hidden;
+    padding: 7px;
+    position: absolute;
+    top:53px;
+    width: 320px;}
+.openbox textarea{ width:308px; resize:none; height:200px; overflow-x:auto; color:#333; padding:5px; line-height:1.6; font-size:12px}
+.openbox input { margin:10px; border:1px solid #ccc; padding:5px 20px}
+.openbox input:hover{background:#f8f8f8; border:1px solid #666; cursor:pointer}
+#upload_btn{ width:100%; height:38px; font-size:18px;margin-left: 0; position:absolute; left:0; top:0}
+.leftcols{width:780px; overflow:hidden;margin: 10px auto;}
+#dropbox img{ background:url(../images/editor/images/loading.gif) center center no-repeat}
+#dropbox ul{ mix-height:0px}
+.btns{ clear:both; padding:8px 0}
+.btns input{ padding:5px 20px; margin-right:10px }
+
+.imginfo{
+	background: none repeat scroll 0 0 #F8F8F8;
+    border: 1px solid #DDDDDD;
+    color: #666666;
+    font-size: 12px;
+    margin: 0 auto 20px;
+    padding: 5px;
+    width: 470px;
+	}
+.imginfoEditor:focus{
+	background:#FFEEE6
+	}
+.imginfoEditor{
+	width: 231px;
+    font-size: 12px;
+    height: 80px;
+    line-height: 1.5;
+	}
+#uploadbox input{clear:both;}
+#icon_uploadready {
+   overflow: hidden;
+    padding: 26px 0 16px 13px;
+	}
+#icon_uploadready li{
+	padding:5px;
+	float:left;
+	margin-right:10px;
+	border:1p solid #ccc;
+	background:#ddd;
+	cursor:pointer
+	}
+#icon_uploadready li:hover{
+	background:#c00
+	}

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$Think.config.SITE_NAME}</title>
+<load href="__CSS__/style.css" />
+</head>
+<body>
+<div class="header">
+	<div class="header03"></div>
+	<div class="header01"></div>
+	<div class="header02">{$Think.config.SITE_NAME} </div>
+</div>
+<include file="Index:left" />
+<div class="rrcc" id="RightBox">
+	<div class="center" id="Mobile" onclick="show_menuC()"></div>
+	<div class="right" id="li010">
+		<div class="right01"><img src="/public/images/04.gif" /> <strong>系统信息</strong></div>
+		<div class="list-div">
+		<table cellspacing='1' cellpadding='3'>
+		  <tr>
+			<td width="20%">服务器操作系统：</td>
+			<td width="30%">{$sys_info.os} ({$sys_info.ip})</td>
+			<td width="20%">Web 服务器：</td>
+			<td width="30%">{$sys_info.web_server}</td>
+		  </tr>
+		  <tr>
+			<td>PHP 版本：</td>
+			<td>{$sys_info.php_ver}</td>
+			<td>Zlib 支持：</td>
+			<td>{$sys_info.zlib}</td>
+		  </tr>
+		  <tr>
+			<td>安全模式：</td>
+			<td>{$sys_info.safe_mode}</td>
+			<td>安全模式GID：</td>
+			<td>{$sys_info.safe_mode_gid}</td>
+		  </tr>
+		  <tr>
+			<td>Socket 支持：</td>
+			<td>{$sys_info.socket}</td>
+			<td>时区设置：</td>
+			<td>{$sys_info.timezone}</td>
+		  </tr>
+		  <tr>
+			<td>文件上传的最大大小：</td>
+			<td>{$sys_info.max_filesize}</td>
+			<td>cURL支持：</td>
+			<td>{$sys_info.curl}</td>
+		  </tr>
+		  <tr>
+			<td>数据库名称：</td>
+			<td>{$sys_info.db_name}</td>
+			<td></td>
+			<td></td>
+		  </tr>
+		</table>
+	</div>
+	</div>
+</div>
+</body>
+</html>

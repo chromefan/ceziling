@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$page_title} - {$Think.config.SITE_NAME}</title>
+<load href="__CSS__/style.css" />
+</head>
+<load href="__JS__/jquery-min-1.9.js" />
+<load href="__JS__/layer/layer.min.js" />
+<script>
+function del(id,param,name){
+	$.layer({
+		   shade : [0.5 , '#000' , true], //不显示遮罩
+		   area : ['auto','auto'],
+		   dialog:{
+			   btns : 2,
+			   msg : '确定要删除吗？',
+			   type : 4,
+			   yes : function(){
+				   $.post('__APP__/ensite/delete',{id:id,param:param,name:name},function(data){
+					   window.location.reload();
+				   });
+			   } 
+		   }
+		});
+}
+function edit(id){
+	$.layer({
+		type: 2,
+		title: '编辑商品信息',
+		fix: false,
+		shadeClose: true,
+		shade: [0.5,'#fff', true],
+		border : [5, 0.3, '#666', true],
+		offset: ['100px',''],
+		area: ['600px','330px'],
+		iframe: {src: '__APP__/ensite/product_edit?id='+id},
+	    end : function(){ //层彻底关闭后执行的回调
+	    	window.location.reload();
+	    }
+	});
+}
+function add(){
+	$.layer({
+		type: 2,
+		title: '添加商品信息',
+		fix: false,
+		shadeClose: true,
+		shade: [0.5,'#fff', true],
+		border : [5, 0.3, '#666', true],
+		offset: ['100px',''],
+		area: ['600px','330px'],
+		iframe: {src: '__APP__/ensite/product_add?add=1'},
+	    end : function(){ //层彻底关闭后执行的回调
+	    	window.location.reload();
+	    }
+	});
+}
+</script>
+<body>
+	<div class="header">
+		<div class="header03"></div>
+		<div class="header01"></div>
+		<div class="header02">{$Think.config.SITE_NAME}</div>
+	</div>
+	<include file="Index:left" />
+	<div class="rrcc" id="RightBox">
+		<div class="center" id="Mobile" onclick="show_menuC()"></div>
+		<div class="right" id="li010">
+			<div class="right01">
+				<img src="/public/images/04.gif" /> <strong>{$page_title}</strong>		
+			</div>
+			<div class="blank_g10"></div>				
+			<div class="list-div" id="listDiv">
+			<table width="100%" border="0" style="text-align: center;">
+					<tr>
+					    <th>ID</th>
+						<th>卦名</th>
+						<th>全名</th>
+						<th>卦象</th>
+						<th>上卦</th>
+						<th>下卦</th>
+						<th>卦辞</th>
+						<th>操作</th>
+					</tr>
+					<volist name="data" id="d">
+					<tr>
+						<td>{$d.id}</td>
+						<td>{$d.name}</td>
+						<td>{$d.fullname}</td>
+						<td><img src="{$img_url}{$d.thumb}"/></td>
+						<td>{$d.up_id}</td>
+						<td>{$d.down_id}</td>
+						<td><textarea rows="4" cols="45">{$d.description}</textarea></td>
+						<td><a href="javascript:void(0);" onclick="edit({$d.id});">编辑</a> | <a href="javascript:void(0);" onclick="del({$d.id},'id','product');">删除</a></td>
+					</tr>
+					</volist>
+				</table>
+			</div>
+		</div>
+	</div>
+<load href="__JS__/utils.js" />
+<load href="__JS__/listdiv.js" />
+</body>
+</html>
