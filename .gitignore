@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+/admincp/Conf/config.php
+/home/Conf/config.php
+/*.sql
+/cezi.sql.zip
+.idea

@@ -1,6 +1,4 @@
 <?php
-echo time();
-exit;
 define('SITE_PATH', getcwd());
 define('APP_NAME', 'home');
 define('APP_PATH', './');
