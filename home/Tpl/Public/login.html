@@ -1,0 +1,67 @@
+<include file="Public:header" />
+<include file="Public:header2" />
+
+<style>
+    #period_info label.error{margin-left: 77px !important;}
+    
+</style>
+<div id="page_subscribe">
+    <div class="wapper">
+        <h1>Login</h1>
+        <div class="line mrb30"></div>
+       
+      
+        <if condition="$uid eq 0">
+	<form id="form_login" method="post">
+            <div id="account_info" class="fw2 mrt30">
+                <div class="left">
+                    <label for="email">Enter Your Email Address:</label>
+                    <input type="text" id="email" name="email" />
+                    <div class="clear"></div>
+                    <a class="btn_forget_password"><span class="tips">Forget Password?</span></a>
+             
+                </div>
+                <div class="right">
+                    <label for="password">Password:</label>
+                    <input type="password" id="npassword" name="password" />
+		    <input type="submit" value="Login" class="btn_orange w180 mrt15 mrr15 floatright" />
+                    <div class="clear"></div>
+                    <div>
+                        <a id="btn_register2" href="#" class=" floatright mrt15 mrr15 orange px14">Register here.</a>
+                        <a href="#" class="floatright grey mrr15 mrt15 px14">Not a member ?</a>
+                        
+                    </div>
+                </div>
+                <div class="clear"></div>
+		
+            </div>
+        </form>
+</div>
+<script>
+    $('#form_login').validate({
+            debug: true,
+
+            rules:{
+                email:{required:true,email:true},
+                password:"required"
+                 },
+            messages: {
+                email:{required:"Please enter your email.", email:"Please make sure the email is validated."},
+                password:"Please enter your password."
+                
+                },
+            submitHandler: function(form) {         	
+                     $('label.error').remove();
+                     $.post('/public/doLogin',$("#form_login").serialize(),function(data){                    	 
+                    	 if(data.status==0){
+                    		 $("#form_login").prepend("<label class=\"error\">" + data.info + "</div>");    		 
+                    	 }else{
+                    		 window.location.href='{$ref}';
+                    	 }           
+                     },'json');                  
+            }
+
+        });
+</script>
+<include file="Public:footer2" />
+<include file="Public:footer" />

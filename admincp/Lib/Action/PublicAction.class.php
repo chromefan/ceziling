@@ -8,7 +8,7 @@ class PublicAction extends Action {
 
 	public function login() {
 		if (service ( 'Passport' )->isLogged ()) {
-			redirect ( "/". APP_NAME );
+			redirect ( "/" );
 			exit ();
 		}
 		$this->assign('page_title', "内容发布系统");
@@ -53,13 +53,13 @@ class PublicAction extends Action {
 		cookie('userinfo',serialize($userinfo));
 		//生成菜单缓存
 		A('Base')->setMenu();
-		redirect ( "/". APP_NAME );
+		redirect ( "/");
 	}
 
 	// 注销退出
 	public function logout() {
 		service('Passport')->logoutLocal();
-		redirect ( "/". APP_NAME . "/public/login" );
+		redirect ( "/public/login" );
 	}
 
 	// 验证码

@@ -1,0 +1,71 @@
+<include file="Public:header" />
+<include file="Public:header2" />
+
+<style>
+    #period_info label.error{margin-left: 77px !important;}
+    
+</style>
+<div id="page_subscribe">
+    <div class="wapper">
+        <h1>Register</h1>
+        <div class="line mrb30"></div>
+
+	<form id="form_register">
+	    <h2 class="sbtitle">Create your digital account</h2>
+	       <div id="account_info" class="fw2 mrt30">
+		   <div class="left">
+		       <label for="email">Enter Your Email Address:</label>
+		       <input type="text" id="email" name="email" />
+		       <div class="clear"></div>
+		       <!--<span class="tips">Email address required for all orders.</span>-->
+		       <!--<span class="alert mrt30">Digital and All Access orders only.</span>-->
+		   </div>
+		   <div class="right">
+		       <label for="password">Password:</label>
+		       <input type="password" id="npassword" name="password" />
+		       <label for="re-password">Re-type Password:</label>
+		       <input type="password" id="re_password" name="re_password" />
+		       <div class="clear"></div>
+		       <span class="tips">Your password must be at least six characters long,
+   including at least one number.</span>
+		       <br /><br />
+		       <input type="submit" value="Join" class="btn_orange w180 mrr15 floatright" />
+		   </div>
+		   <div class="clear"></div>
+		   
+	       </div>
+	</form>	    
+
+
+    </div>
+	<script>
+	     $('#form_register').validate({
+		    debug: true,
+		    onfocusout: false,
+		    onkeyup: false,
+		    rules:{
+			email:{required:true,email:true},
+			password:"required",
+			re_password:{equalTo:'#npassword'}
+			 },
+		    messages: {
+			email:{required:"Please enter your email", email:"Please make sure the email is validated"},
+			password:"Please enter your password.",
+			re_password:"Password do not match."
+			},
+		    submitHandler: function(form) {
+			$('label.error').remove();
+			$.post('/public/doRegister',$("#form_header_join").serialize(),function(data){                    	 
+			     if(data.status==0){
+				     $("#form_register").prepend("<label class=\"error\">" + data.info + "</div>");    		 
+			     }else if(data.status==1){
+			    	 window.location.href='{$ref}';
+			     }           
+			},'json'); 
+		    }
+		    
+		});
+	</script>
+
+<include file="Public:footer2" />
+<include file="Public:footer" />

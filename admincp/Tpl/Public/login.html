@@ -32,7 +32,7 @@
 	function changeverify() {
 		var date = new Date();
 		var ttime = date.getTime();
-		var url = "__APP__/public/verify";
+		var url = "/public/verify";
 		$('#verifyimg').attr("src", url + '/' + ttime);
 	}
 	
@@ -42,7 +42,7 @@
 	<div id="page">		
 		<h1></h1>
 		  <div id="login_form">
-		       <form name="thisForm" onsubmit="return Check();"	action="__APP__/public/dologin" method="post">
+		       <form name="thisForm" onsubmit="return Check();"	action="/public/dologin" method="post">
 		      <ul class="clearfix">
 		        <li>
 		          <lable id="usr" class="login_lable" for="login_username">用户名</lable><input type="input" id="username" class="text r5px" name="username" onfocus="hiddenInputText('usr')" />
@@ -51,7 +51,7 @@
 		          <lable id="pwd" class="login_lable" for="login_password">密码</lable><input type="password" id="password" class="text r5px" name="password" onfocus="hiddenInputText('pwd')">
 		        </li>
 		        <li style="width:180px;">
-		          <lable id="verify" class="login_lable" for="login_verify">验证码</lable><input type="text" id="veri" class="text r5px" name="verify" onfocus="hiddenInputText('verify')"> <span style="height:35px; line-height:35px;"><img onclick="changeverify();" style="cursor: pointer;" title="看不清? 换一张" alt="看不清? 换一张" id="verifyimg" src="__APP__/public/verify"></span>
+		          <lable id="verify" class="login_lable" for="login_verify">验证码</lable><input type="text" id="veri" class="text r5px" name="verify" onfocus="hiddenInputText('verify')"> <span style="height:35px; line-height:35px;"><img onclick="changeverify();" style="cursor: pointer;" title="看不清? 换一张" alt="看不清? 换一张" id="verifyimg" src="/public/verify"></span>
 		        </li>
 		        <li class="last">
 		          <input type="submit" id="button_login" class="r5px button_blue" value="登 录">

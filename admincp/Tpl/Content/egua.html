@@ -17,7 +17,7 @@ function del(id,param,name){
 			   msg : '确定要删除吗？',
 			   type : 4,
 			   yes : function(){
-				   $.post('__APP__/ensite/delete',{id:id,param:param,name:name},function(data){
+				   $.post('/ensite/delete',{id:id,param:param,name:name},function(data){
 					   window.location.reload();
 				   });
 			   } 
@@ -34,7 +34,7 @@ function edit(id){
 		border : [5, 0.3, '#666', true],
 		offset: ['100px',''],
 		area: ['600px','330px'],
-		iframe: {src: '__APP__/ensite/product_edit?id='+id},
+		iframe: {src: '/ensite/product_edit?id='+id},
 	    end : function(){ //层彻底关闭后执行的回调
 	    	window.location.reload();
 	    }
@@ -50,7 +50,7 @@ function add(){
 		border : [5, 0.3, '#666', true],
 		offset: ['100px',''],
 		area: ['600px','330px'],
-		iframe: {src: '__APP__/ensite/product_add?add=1'},
+		iframe: {src: '/ensite/product_add?add=1'},
 	    end : function(){ //层彻底关闭后执行的回调
 	    	window.location.reload();
 	    }
@@ -68,7 +68,7 @@ function add(){
 		<div class="center" id="Mobile" onclick="show_menuC()"></div>
 		<div class="right" id="li010">
 			<div class="right01">
-				<img src="/public/images/04.gif" /> <strong>{$page_title}</strong>		
+				<img src="__IMG__/04.gif" /> <strong>{$page_title}</strong>		
 			</div>
 			<div class="blank_g10"></div>				
 			<div class="list-div" id="listDiv">

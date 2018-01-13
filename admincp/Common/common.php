@@ -536,3 +536,40 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 		return $keyc . str_replace ( '=', '', base64_encode ( $result ) );
 	}
 }
+function get_post_data(){
+	$res=array();
+	if (is_array($_POST)&&!empty($_POST)) {
+		unset($_POST['toSave']);
+		unset($_POST['__hash__']);
+		foreach ($_POST as $k => $v) {
+			if (is_numeric($v)) {
+				$res[$k]=intval($v);
+			}elseif(!empty($v)){
+				$res[$k]=t($v);
+			}
+		}
+		return $res;
+	}
+	return false;
+}
+function get_problem_type($type_id){
+		$type=array(1=>'事业',2=>'爱情',3=>'健康',4=>'杂事');
+		return $type[$type_id];
+}
+function shichen_name($num){
+	$shichen=array(
+		1=>'子',
+		2=>'丑',
+		3=>'寅',
+		4=>'卯',
+		5=>'辰',
+		6=>'巳',
+		7=>'午',
+		8=>'未',
+		9=>'申',
+		10=>'酉',
+		11=>'戌',
+		12=>'亥'
+	);
+	return $shichen[$num];
+}

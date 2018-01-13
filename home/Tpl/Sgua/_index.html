@@ -1,0 +1,33 @@
+<include file="Public:header" />
+<div class="container">
+	<include file="Public:navi" />
+	<div class="text-meihua">
+	<div class="page-header">
+	  <h3>六十四卦<small>白话文解释</small></h3>
+	</div>
+	<table class="table table-hover">
+        <thead>
+          <tr>
+            <th width="10%">序号</th>
+            <th width="10%">卦名</th>
+            <th width="15%">卦象</th>
+            <th width="60%">卦辞</th>
+          </tr>
+        </thead>
+        <tbody>
+        <volist name="data"  id="d">
+          <tr>
+         	<td>{$d.id}</td>
+            <td>{$d.fullname}</td>
+            <td><img src="{$img_url}/data/thumb/{$d.name}.png" class="img-thumbnail"></td>
+            <td class="gua_desc">{$d.description}</td>
+          </tr>
+         </volist>
+        </tbody>
+      </table>
+      <hr>
+      <ul class="pagination">
+      	{$page}
+      </ul>
+</div>
+<include file="Public:footer" />

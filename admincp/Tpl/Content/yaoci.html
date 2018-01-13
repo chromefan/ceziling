@@ -17,7 +17,7 @@ function del(id,param,name){
 			   msg : '确定要删除吗？',
 			   type : 4,
 			   yes : function(){
-				   $.post('__APP__/content/delete',{id:id,param:param,name:name},function(data){
+				   $.post('/content/delete',{id:id,param:param,name:name},function(data){
 					   window.location.reload();
 				   });
 			   } 
@@ -33,8 +33,8 @@ function edit(id){
 		shade: [0.5,'#fff', true],
 		border : [5, 0.3, '#666', true],
 		offset: ['50px',''],
-		area: ['600px','550px'],
-		iframe: {src: '__APP__/content/yaoci_edit?id='+id},
+		area: ['600px','500px'],
+		iframe: {src: '/content/yaoci_edit?id='+id},
 	    end : function(){ //层彻底关闭后执行的回调
 	    	window.location.reload();
 	    }
@@ -49,8 +49,8 @@ function add(){
 		shade: [0.5,'#fff', true],
 		border : [5, 0.3, '#666', true],
 		offset: ['50px',''],
-		area: ['600px','550px'],
-		iframe: {src: '__APP__/content/yaoci_add'},
+		area: ['600px','500px'],
+		iframe: {src: '/content/yaoci_add'},
 	    end : function(){ //层彻底关闭后执行的回调
 	    	window.location.reload();
 	    }
@@ -68,11 +68,12 @@ function add(){
 		<div class="center" id="Mobile" onclick="show_menuC()"></div>
 		<div class="right" id="li010">
 			<div class="right01">
-				<img src="/public/images/04.gif" /> <strong>{$page_title}</strong>
+				<img src="__IMG__/04.gif" /> <strong>{$page_title}</strong>
 				<a class="action_link" style="margin-left:30px;border:0" href="javascript:void(0);" onclick="add();">添加动爻信息</a>
 			</div>
 			
-			<div class="blank_g10"></div>				
+			<div class="blank_g10"></div>	
+			{$page}
 			<div class="list-div" id="listDiv">
 			<table width="100%" border="0">
 					<tr>
@@ -82,10 +83,11 @@ function add(){
 						<th>本卦卦名</th>
 						<th>变卦卦名</th>
 						<th>爻辞</th>
+						<th>象辞</th>
+						<th>爻辞解释</th>
+						<th>象辞解释</th>
 						<th>邵辞</th>
-						<th>体用</th>
-						<th>五行</th>
-						<th width=8%>操作</th>
+						<th width=7%>操作</th>
 					</tr>
 					<volist name="data" id="d">
 					<tr>
@@ -95,13 +97,15 @@ function add(){
 						<td>{$d.s_gua_name}</td>
 						<td>{$d.b_gua_name}</td>
 						<td>{$d.yaoci}</td>
+						<td>{$d.xiangci}</td>
+						<td>{$d.yaoci_jieshi}</td>
+						<td>{$d.xiangci_jieshi}</td>
 						<td>{$d.shaoci}</td>
-						<td>{$d.tiyong}</td>
-						<td>{$d.wuxing}</td>
 						<td><a href="javascript:void(0);" onclick="edit({$d.id});">编辑</a> | <a href="javascript:void(0);" onclick="del({$d.id},'id','dongyao');">删除</a></td>
 					</tr>
 					</volist>
 				</table>
+				{$page}
 			</div>
 		</div>
 	</div>

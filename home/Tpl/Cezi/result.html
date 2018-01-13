@@ -1,0 +1,108 @@
+<include file="Public:header" />
+<script>
+function save_email(ce_sn){
+	var email = $('#email').val();
+
+	if(email==''){
+		$('#emailTip').text('请输入邮箱');
+		$('#email').focus();
+		return false;
+	}
+    var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    if(!myreg.test(email))
+     {
+		$('#emailTip').text('请输入有效的Email');
+		$('#email').val('');
+        $('#email').focus();
+        return false;
+     }
+	$.post('/cezi/save_email',{ce_sn:ce_sn,email:email},function(data){
+			if(data.status==1){
+				$('#email-text > h5').text('您的邮箱 '+email+' 已经提交请耐心等待结果');
+				$('.result-email').hide();
+				$('#email-text').show();
+			}else{
+				$('#emailTip').text('请输入有效的Email');
+				$('#email').focus();
+				return false;
+			}
+		//window.location.reload();
+	},'json');
+}
+</script>
+    <div class="container">
+	<include file="Public:navi" />
+      <div class="jumbotron">
+       <form id="form1" class="form-horizontal" action="" method="post">
+	   <!--div id="img-src"><img src="__IMG__/taiji.gif" alt="{$Think.config.SITE_NAME}" class="img-circle"></div-->
+	   <h2>测算结果</h2>
+		<div class="shuoming">
+		<hr>
+		<dl class="dl-horizontal">
+		  <dt>测算号</dt>
+		  <dd>{$result.user_data.ce_sn}</dd>
+		  <dt>测算人性别</dt>
+		  <dd><if condition="$result['user_data']['sex'] eq 1">男<else />女</if></dd>
+		  <dt>出生年月</dt>
+		  <dd>{$result.user_data.birthday}</dd>
+		  <dt>测算日期</dt>
+		  <dd>{$result.user_data.cesuan_time} {$result.user_data.shichen} 时</dd>
+		  <dt>随机字</dt>
+		  <dd>{$result.user_data.word}</dd>
+		  <dt>所问事项</dt>
+		  <dd>{$result.user_data.problem_type}</dd>
+		  <dt>事情简述</dt>
+		  <dd>{$result.user_data.problem_text}</dd>
+		</dl>
+		<hr>
+		<div class="result">
+		<h4>卦象</h4>
+		<div class="gua_show">
+			<div class="gua_xiang">本卦：<strong>{$result.s_gua.fullname}</strong><img src="{$img_url}/data/thumb/{$result.s_gua.name}.png" class="img-thumbnail"></div>
+			<div class="gua_xiang">互卦：<strong>{$result.h_gua.fullname}</strong><img src="{$img_url}/data/thumb/{$result.h_gua.name}.png" class="img-thumbnail"></div>
+			<div class="gua_xiang">变卦：<strong>{$result.b_gua.fullname}</strong><img src="{$img_url}/data/thumb/{$result.b_gua.name}.png" class="img-thumbnail"></div>
+		</div>
+		<h4>动爻</h4>
+		  <p>{$result.dongyao.name}</p>
+		<h4>爻辞</h4>
+		<p>{$result.dongyao.yaoci}</p> 
+		<p>{$result.dongyao.xiangci} </p>
+		<h4>白话文解释</h4>
+		<p> {$result.dongyao.yaoci_jieshi}</p>
+		<p>{$result.dongyao.xiangci_jieshi}</p>
+		<h4>邵康节解卦</h4>
+		<p>{$result.dongyao.shaoci}</p>
+		<hr>
+		<div class="alert alert-danger">
+		   <strong>善意提醒：</strong>如果您不懂周易，切忌不要按卦辞、爻辞的字面意思理解。
+		</div>
+		<h5>如需详细解释，请留下邮箱，作者会将详细解释发给您</h5>
+		<div class="result-email">
+			<label class="control-label" for="email"><i class="red"></i>
+				邮箱：</label>
+		   	<input class="form-control" 
+					placeholder="填写邮箱地址"  name="email"
+					id="email" type="text">
+			<button type="button" onclick="save_email('{$result.user_data.ce_sn}');"
+					class="btn btn-default" id="email-sub">提交</button>
+			<span id="emailTip" style="color: red"></span>
+		</div>
+		<div id="email-text" class="alert alert-success" style="display:none;text-align:center;">
+		   <h5></h5>
+		</div>
+		<div class="alert alert-warning">
+		   <h5>其他方式：</h5>
+		   <ul>
+			<li>请将测算号或者本页面地址发送给作者<strong>2512699735@qq.com</strong></li>
+			<li>作者QQ：<strong>2512699735</strong></li>
+		   </ul>
+		</div>
+		<div class="qr-img">
+		  <php>get_QRcode($base_url."/cezi/qr_result?csn=".$result['user_data']['ce_sn']);</php>
+		   <small>扫描二维码手机查看结果</small>
+		   </div>
+		</div>
+		</div>
+      </form>
+ </div>
+<include file="Public:footer" />

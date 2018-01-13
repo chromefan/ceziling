@@ -1,0 +1,15 @@
+User-Agent: *
+Allow: /index/
+Allow: /about/
+Allow: /contact/
+Allow: /case/
+Allow: /sgua/
+Allow: /meihua/
+Allow: /cezi/
+Allow: /sitemap/
+Allow: /
+Disallow: /Lib/
+Disallow: /Conf/
+Disallow: /Tpl/
+
+Sitemap: http://www.ceziling.com/sitemap.xml

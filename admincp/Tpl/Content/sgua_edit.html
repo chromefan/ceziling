@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$page_title} - {$Think.config.SITE_NAME}</title>
+<load href="__CSS__/style.css" />
+</head>
+<load href="__JS__/jquery-min-1.9.js" />
+<load href="__JS__/layer/layer.min.js" />
+<load href="__JS__/va.js" />
+<script>
+
+function Submit(formname) {
+
+	var formid = document.getElementById(formname);
+	var isform = Validator.Validate(formid, 3);
+
+	if (!isform) {
+		return false;
+	} else {
+		formid.submit();
+		return true;
+	}
+}
+</script>
+<body>
+	<div class="list-div" id="listDiv">
+		<form id="form1" name="form1" method="post" action="/content/sgua_edit">
+			<p>&nbsp;</p>
+			<table width="100%" border="0" style="text-align:left;">
+				<tr>
+					<td width="15%">名称</td>
+					<td><label for="name"></label> <input class="post_val" type="text" name="name"
+						id="name"  datatype="Require"
+						msg="请输入名称" placeholder="名称" value="{$data.name}"/><span id="nameTip" style="color: red"></span>
+						 <input type="hidden" name="name_org" value="{$data.name}" ></td>
+				</tr>			
+				<tr>
+					<td>互卦</td>
+					<td><select name="h_gua_id" id="cate">
+						<volist name="data.sgua" id="c">
+							<php>if($c[id]==$data[h_gua_id]){</php>
+									<option value="{$c.id}" selected="true">{$c.fullname}</option>
+							<php>}else{</php>
+									<option value="{$c.id}">{$c.fullname}</option>
+							<php>}</php>
+						</volist>
+					</select>
+					<input type="hidden" name="h_gua_id_org" value="{$data.h_gua_id}" >
+					</td>
+				</tr>
+				<tr>
+					<td>辞辞</td>
+					<td><label for="description"></label> <textarea name="description" class="post_val"
+							id="shaoci" cols="45" rows="4" >{$data.description}</textarea>
+							<input type="hidden" name="description_org" value="{$data.description}" >
+							</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<input type="hidden" name='id' value="{$data.id}"/>
+					<td><input type="button" name="doSave" id="button" value="保存" onclick="Submit('form1');"/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

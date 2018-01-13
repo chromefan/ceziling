@@ -14,7 +14,7 @@ class BaseAction extends Action {
 		// 登录检测
 		$this->checkLogin();
 		if ($this->uid == 0) {
-			redirect ( "/". APP_NAME."/public/login" );
+			redirect ( "/public/login" );
 			exit ();
 		}
 		// 开始判断操作权限
@@ -23,7 +23,7 @@ class BaseAction extends Action {
 		// 只有超级管理员拥有全部权限
 		if ($_SESSION ['administrator'] === false) {
 			if (MODULE_NAME != 'Index' && ! in_array ( MODULE_NAME, $pivlist )) {
-				redirect ( '/' . APP_NAME . '/public/login' );
+				redirect ( '/public/login' );
 				exit ();
 			}
 		}

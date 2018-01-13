@@ -821,15 +821,12 @@ function get_post_data(){
 	if (is_array($_POST)&&!empty($_POST)) {
 		unset($_POST['toSave']);
 		unset($_POST['__hash__']);
-		$i=0;
 		foreach ($_POST as $k => $v) {
-			if (!empty($v)) {
-				$i++;
+			if (is_numeric($v)) {
+				$res[$k]=intval($v);
+			}else{
 				$res[$k]=t($v);
 			}
-		}
-		if ($i<=1) {
-			return false;
 		}
 		return $res;
 	}
@@ -877,5 +874,118 @@ function enmonth($k){
 			11 => "November",
 			12 => "December");
 	return $month[$k];
+}
+function is_hanzi($chinese)     {
+	$regex = '/([\x81-\xfe][\x40-\xfe])/';
+	$matches = array();
+	return preg_match($regex, $chinese);
+}
+// 当前时辰
+function shichen() {
+	$now = intval ( date ( 'H' ) );
+	$shichen_num = '';
+	switch ($now) {
+		case $now == 23 || $now == 0 || $now == 24 :
+			$shichen_num = 1;
+			break;
+		case $now == 1 || $now == 2 :
+			$shichen_num = 2;
+			break;
+		case $now == 3 || $now == 4 :
+			$shichen_num = 3;
+			break;
+		case $now == 5 || $now == 6 :
+			$shichen_num = 4;
+			break;
+		case $now == 7 || $now == 8 :
+			$shichen_num = 5;
+			break;
+		case $now == 9 || $now == 10 :
+			$shichen_num = 6;
+			break;
+		case $now == 11 || $now == 12 :
+			$shichen_num = 7;
+			break;
+		case $now == 13 || $now == 14 :
+			$shichen_num = 8;
+			break;
+		case $now == 15 || $now == 16 :
+			$shichen_num = 9;
+			break;
+		case $now == 17 || $now == 18 :
+			$shichen_num = 10;
+			break;
+		case $now == 19 || $now == 20 :
+			$shichen_num = 11;
+			break;
+		case $now == 21 || $now == 22 :
+			$shichen_num = 12;
+			break;
+		default :
+			$shichen_num = 1;
+			break;
+	}
+	return $shichen_num;
+}
+function shichen_name($num){
+	$shichen=array(
+		1=>'子',
+		2=>'丑',
+		3=>'寅',
+		4=>'卯',
+		5=>'辰',
+		6=>'巳',
+		7=>'午',
+		8=>'未',
+		9=>'申',
+		10=>'酉',
+		11=>'戌',
+		12=>'亥'
+	);
+	return $shichen[$num];
+}
+	/**
+ * google api 二维码生成【QRcode可以存储最多4296个字母数字类型的任意文本，具体可以查看二维码数据格式】
+ * @param string $chl 二维码包含的信息，可以是数字、字符、二进制信息、汉字。不能混合数据类型，数据必须经过UTF-8 URL-encoded.如果需要传递的信息超过2K个字节，请使用POST方式
+ * @param int $widhtHeight 生成二维码的尺寸设置
+ * @param string $EC_level 可选纠错级别，QR码支持四个等级纠错，用来恢复丢失的、读错的、模糊的、数据。
+ *                         L-默认：可以识别已损失的7%的数据
+ *                         M-可以识别已损失15%的数据
+ *                         Q-可以识别已损失25%的数据
+ *                         H-可以识别已损失30%的数据
+ * @param int $margin 生成的二维码离图片边框的距离
+ */ 
+function get_QRcode($chl,$widhtHeight ='150',$EC_level='L',$margin='0') 
+{ 
+		$chl = urlencode($chl); 
+		echo '<img src="http://chart.apis.google.com/chart?chs='.$widhtHeight.'x'.$widhtHeight.'&cht=qr&chld='.$EC_level.'|'.$margin.'&chl='.$chl.'" alt="QR code" widhtHeight="'.$widhtHeight.'" widhtHeight="'.$widhtHeight.'"/>'; 
+}
+function get_lunar($date=''){
+	import ( 'ORG.Util.Lunar');
+	import ( 'ORG.Util.Date');
+	$lunar = new Lunar();
+	//公历转农历
+	if(empty($date)){
+		$date=date('Y-m-d',time());
+	}
+	$n = $lunar->S2L($date);
+	$d = new Date();
+	$gz = $d->magicInfo('GZ');
+	return $n;
+}
+function checkReferer(){
+	if(isset($_SERVER['HTTP_REFERER'])){
+		//针对部分浏览器可能无HTTP_REFERER,所以做这么一个判断  
+		$servername=$_SERVER['SERVER_NAME'];
+		$sub_from=$_SERVER["HTTP_REFERER"];
+		$sub_len=strlen($servername);
+		$checkfrom=substr($sub_from,7,$sub_len);
+		if($checkfrom!=$servername){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	return false;
 }
 ?>

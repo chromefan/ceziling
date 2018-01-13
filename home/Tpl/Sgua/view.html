@@ -1,0 +1,35 @@
+<include file="Public:header" />
+    <div class="container">
+	<include file="Public:navi" />
+      <div class="jumbotron">
+	  		<ol class="breadcrumb">
+			  <li><a href="/">首页</a></li>
+			  <li><a href="/sgua/">六十四卦</a></li>
+			  <li class="active">{$result.sgua.fullname}</li>
+			</ol>
+		<div class="gua_xiangxi">
+		<div class="page-header">
+			<h3>{$result.sgua.fullname}<small>  第 {$result.sgua.id} 卦</small></h3>
+		</div>
+		<div class="result">
+		<h4>卦象</h4>
+		<div class="gua_show">
+			<div class="gua_xiang">本卦：<strong>{$result.sgua.fullname}</strong><img src="{$img_url}/data/thumb/{$result.sgua.name}.png" class="img-thumbnail"></div>
+			<div class="gua_xiang">互卦：<strong><a href="/{$result.hgua.id}.html">{$result.hgua.fullname}</a></strong><img src="{$img_url}/data/thumb/{$result.hgua.name}.png" class="img-thumbnail"></div>
+		</div>
+		<volist name="result.dongyao" id="d">
+		<h4>{$d.name}</h4>
+		<hr>
+		<p>{$d.yaoci}</p> 
+		<p>{$d.xiangci} </p>
+		<h5>白话文解释</h5>
+		<p>{$d.yaoci_jieshi}</p>
+		<p>{$d.xiangci_jieshi}</p>
+		<h5>邵康节解卦</h5>
+		<p>{$d.shaoci}</p>
+		<hr>
+		</volist>
+		</div>
+		</div>
+ </div>
+<include file="Public:footer" />

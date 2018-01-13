@@ -9,50 +9,37 @@
 <load href="__JS__/layer/layer.min.js" />
 <load href="__JS__/va.js" />
 <script>
-	function Submit(formname) {
 
-		var formid = document.getElementById(formname);
-		var isform = Validator.Validate(formid, 3);
+function Submit(formname) {
 
-		if (!isform) {
-			return false;
-		} else {
-			formid.submit();
-			return true;
-		}
+	var formid = document.getElementById(formname);
+	var isform = Validator.Validate(formid, 3);
+
+	if (!isform) {
+		return false;
+	} else {
+		formid.submit();
+		return true;
 	}
-	function unNullify(urlField, multi_edit)
-	{
-	    var rowForm = document.forms['insertForm'];
-
-	    if (typeof(rowForm.elements['fields_null[multi_edit][' + multi_edit + '][' + urlField + ']']) != 'undefined') {
-	        rowForm.elements['fields_null[multi_edit][' + multi_edit + '][' + urlField + ']'].checked = false
-	    } // end if
-
-	    if (typeof(rowForm.elements['insert_ignore_' + multi_edit]) != 'undefined') {
-	        rowForm.elements['insert_ignore_' + multi_edit].checked = false
-	    } // end if
-
-	    return true;
-	} 
+}
 </script>
 <body>
 	<div class="list-div" id="listDiv">
-		<form id="form1" name="form1" method="post" action="__APP__/content/yaoci_edit">
+		<form id="form1" name="form1" method="post" action="/content/yaoci_edit">
 			<p>&nbsp;</p>
 			<table width="100%" border="0" style="text-align:left;">
 				<tr>
 					<td width="15%">名称</td>
-					<td><label for="name"></label> <input type="text" name="name"
+					<td><label for="name"></label> <input class="post_val" type="text" name="name"
 						id="name"  datatype="Require"
 						msg="请输入名称" placeholder="名称" value="{$data.dongyao.name}"/><span id="nameTip" style="color: red"></span>
 						 <input type="hidden" name="name_org" value="{$data.dongyao.name}" ></td>
 				</tr>
 				<tr>
 					<td>位置</td>
-					<td><label for="position"></label> <input type="text" name="position"
+					<td><label for="position"></label> <input class="post_val" type="text" name="position"
 						id="position"  datatype="Number"
-						msg="请输入位置为数字" placeholder="位置" value="{$data.dongyao.position}"/><span id="positionTip" style="color: red"></span></td>
+						msg="请输入位置为数字" placeholder="位置" value="{$data.dongyao.position}" /><span id="positionTip" style="color: red"></span></td>
 				</tr>			
 				<tr>
 					<td>本卦</td>
@@ -80,23 +67,33 @@
 				</tr>
 				<tr>
 					<td>爻辞</td>
-					<td><label for="yaoci"></label><textarea
-						name="yaoci" id="yaoci" cols="30" rows="3"/>{$data.dongyao.yaoci}</textarea></td>
+					<td><label for="yaoci"></label><textarea class="post_val"
+						name="yaoci" id="yaoci" cols="45" rows="4" />{$data.dongyao.yaoci}</textarea></td>
 				</tr>
 				<tr>
+					<td>象辞</td>
+					<td><label for="xiangci"></label><textarea class="post_val"
+						name="xiangci" id="xiangci" cols="45" rows="4" />{$data.dongyao.xiangci}</textarea></td>
+				</tr>				
+				<tr>
+					<td>爻辞解释</td>
+					<td><label for="yaoci_jieshi"></label><textarea class="post_val"
+						name="yaoci_jieshi" id="yaoci_jieshi" cols="45" rows="4" />{$data.dongyao.yaoci_jieshi}</textarea></td>
+				</tr>
+				<tr>
+					<td>象辞解释</td>
+					<td><label for="xiangci_jieshi"></label><textarea class="post_val"
+						name="xiangci_jieshi" id="xiangci_jieshi" cols="45" rows="4" />{$data.dongyao.xiangci_jieshi}</textarea></td>
+				</tr>				
+				<tr>
 					<td>邵辞</td>
-					<td><label for="shaoci"></label> <textarea name="shaoci"
-							id="shaoci" cols="45" rows="4">{$data.dongyao.shaoci}</textarea></td>
+					<td><label for="shaoci"></label> <textarea name="shaoci" class="post_val"
+							id="shaoci" cols="45" rows="4" >{$data.dongyao.shaoci}</textarea></td>
 				</tr>
 				<tr>
 					<td>体用</td>
 					<td><label for="tiyong"></label> <textarea name="tiyong"
 							id="tiyong" cols="30" rows="3">{$data.dongyao.tiyong}</textarea></td>
-				</tr>
-				<tr>
-					<td>五行</td>
-					<td><label for="wuxing"></label> <textarea name="wuxing"
-							id="wuxing" cols="30" rows="3">{$data.dongyao.wuxing}</textarea></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>

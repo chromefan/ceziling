@@ -1,0 +1,28 @@
+<include file="Public:header" />
+<div class="container">
+	<include file="Public:navi" />
+	<div class="text-meihua">
+	  <h3>六十四卦图谱</h3>
+	<table class="table table-bordered">
+        <thead>
+          <tr>
+		  <th></th>
+		  <volist name="e_gua" id="e">
+            <th><img src="{$img_url}/data/thumb/e_{$e.id}.png" class="img-thumbnail egua">{$e.name}</th>
+		  </volist>
+          </tr>
+        </thead>
+        <tbody>
+		<volist name="result" id="res">
+          <tr>
+		  <td><img src="{$img_url}/data/thumb/e_{$res.egua.id}.png" class="img-thumbnail egua">{$res.egua.name}</td>
+		  <volist name="res.sgua" id="r">
+            <td><img src="{$img_url}/data/thumb/{$r.name}.png" class="img-thumbnail">
+			<a href="/{$r.id}.html">{$r.fullname}</a></td>
+		  </volist>
+          </tr>
+		 </volist>
+        </tbody>
+      </table>
+</div>
+<include file="Public:footer" />
