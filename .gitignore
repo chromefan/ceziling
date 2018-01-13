@@ -4,3 +4,5 @@
 /*.sql
 /cezi.sql.zip
 .idea
+/admincp/Runtime/*
+/home/Runtime/*
